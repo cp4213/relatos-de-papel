@@ -15,19 +15,22 @@ npm install
 ```bash
 npm run dev
 ```
-## Estructura de caprteas sugerida
+## Estructura de carpetas
+```text
 relatos-de-papel/
-  public/                   # Estáticos servidos tal cual (opcional)
-  src/
-    assets/                 # Imágenes, íconos, fuentes, etc.
-    components/             # Componentes reutilizables (Navbar, Card, Button...)
-    pages/                  # Pantallas/vistas (Home, About, Login...)
-    services/               # Consumo de APIs (fetch/axios), config endpoints, etc.
-    styles/                 # CSS propio (global, variables, utilidades)
-    App.jsx                 # Componente raíz
-    main.jsx                # Entry point: render + imports globales (Bootstrap)
-    index.css               # CSS global (opcional)
-  index.html                # HTML base (contiene <div id="root"></div>)
-  package.json
-  vite.config.js
-  README.md
+├─ public/                   # Estáticos servidos tal cual (favicon, imágenes públicas, etc.)
+├─ src/
+│  ├─ assets/                # Imágenes, íconos, fuentes y otros recursos estáticos
+│  ├─ components/            # Componentes reutilizables (Navbar, Card, Button...)
+│  ├─ pages/                 # Pantallas/vistas (Home, About, Login...)
+│  ├─ services/              # Consumo de APIs (fetch/axios), configuración de endpoints, adaptadores, etc.
+│  ├─ styles/                # CSS propio (global, variables, utilidades)
+│  ├─ App.jsx                # Componente raíz de la aplicación
+│  ├─ main.jsx               # Entry point: render de <App /> + imports globales (Bootstrap, estilos)
+│  └─ index.css              # CSS global (opcional)
+├─ index.html                # HTML base (contiene <div id="root"></div>)
+├─ package.json              # Dependencias y scripts del proyecto
+├─ vite.config.js            # Configuración de Vite
+└─ README.md                 # Documentación del proyecto
+```
+
