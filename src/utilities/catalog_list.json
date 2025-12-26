@@ -1,0 +1,292 @@
+{
+  "page_size": 10,
+  "total_items": 30,
+  "total_pages": 3,
+  "pages": [
+    {
+      "page": 1,
+      "items": [
+        {
+          "titulo": "Clean Code (Edición 1)",
+          "autor": "Robert C. Martin",
+          "descripcion": "A Handbook of Agile Software Craftsmanship focused on writing readable and maintainable code.",
+          "precio_usd": 37.99,
+          "stock": 120,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX374_BO1,204,203,200_.jpg",
+          "calificacion": 4.7
+        },
+        {
+          "titulo": "The Pragmatic Programmer (Edición 2)",
+          "autor": "Andrew Hunt, David Thomas",
+          "descripcion": "Classic tips and practices for effective software development.",
+          "precio_usd": 45.0,
+          "stock": 93,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51A5Jz2pVBL._SX380_BO1,204,203,200_.jpg",
+          "calificacion": 4.7
+        },
+        {
+          "titulo": "Introduction to Algorithms (Edición 3)",
+          "autor": "Thomas H. Cormen et al.",
+          "descripcion": "Comprehensive textbook covering a broad range of algorithms in depth.",
+          "precio_usd": 94.99,
+          "stock": 56,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41SNoh5ZhOL._SX396_BO1,204,203,200_.jpg",
+          "calificacion": 4.4
+        },
+        {
+          "titulo": "Design Patterns (Edición 4)",
+          "autor": "Erich Gamma et al.",
+          "descripcion": "Elements of Reusable Object-Oriented Software.",
+          "precio_usd": 62.49,
+          "stock": 64,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51kuc0iWo5L._SX379_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "You Don't Know JS Yet (Edición 5)",
+          "autor": "Kyle Simpson",
+          "descripcion": "Deep dive into JavaScript core mechanisms and concepts.",
+          "precio_usd": 39.99,
+          "stock": 132,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51L9c1y8gJL._SX331_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "Clean Code (Edición 6)",
+          "autor": "Robert C. Martin",
+          "descripcion": "A Handbook of Agile Software Craftsmanship focused on writing readable and maintainable code.",
+          "precio_usd": 37.99,
+          "stock": 110,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX374_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "The Pragmatic Programmer (Edición 7)",
+          "autor": "Andrew Hunt, David Thomas",
+          "descripcion": "Classic tips and practices for effective software development.",
+          "precio_usd": 45.0,
+          "stock": 83,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51A5Jz2pVBL._SX380_BO1,204,203,200_.jpg",
+          "calificacion": 4.8
+        },
+        {
+          "titulo": "Introduction to Algorithms (Edición 8)",
+          "autor": "Thomas H. Cormen et al.",
+          "descripcion": "Comprehensive textbook covering a broad range of algorithms in depth.",
+          "precio_usd": 94.99,
+          "stock": 46,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41SNoh5ZhOL._SX396_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "Design Patterns (Edición 9)",
+          "autor": "Erich Gamma et al.",
+          "descripcion": "Elements of Reusable Object-Oriented Software.",
+          "precio_usd": 62.49,
+          "stock": 54,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51kuc0iWo5L._SX379_BO1,204,203,200_.jpg",
+          "calificacion": 4.3
+        },
+        {
+          "titulo": "You Don't Know JS Yet (Edición 10)",
+          "autor": "Kyle Simpson",
+          "descripcion": "Deep dive into JavaScript core mechanisms and concepts.",
+          "precio_usd": 39.99,
+          "stock": 122,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51L9c1y8gJL._SX331_BO1,204,203,200_.jpg",
+          "calificacion": 4.7
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "items": [
+        {
+          "titulo": "Clean Code (Edición 11)",
+          "autor": "Robert C. Martin",
+          "descripcion": "A Handbook of Agile Software Craftsmanship focused on writing readable and maintainable code.",
+          "precio_usd": 37.99,
+          "stock": 100,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX374_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "The Pragmatic Programmer (Edición 12)",
+          "autor": "Andrew Hunt, David Thomas",
+          "descripcion": "Classic tips and practices for effective software development.",
+          "precio_usd": 45.0,
+          "stock": 73,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51A5Jz2pVBL._SX380_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "Introduction to Algorithms (Edición 13)",
+          "autor": "Thomas H. Cormen et al.",
+          "descripcion": "Comprehensive textbook covering a broad range of algorithms in depth.",
+          "precio_usd": 94.99,
+          "stock": 36,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41SNoh5ZhOL._SX396_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "Design Patterns (Edición 14)",
+          "autor": "Erich Gamma et al.",
+          "descripcion": "Elements of Reusable Object-Oriented Software.",
+          "precio_usd": 62.49,
+          "stock": 44,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51kuc0iWo5L._SX379_BO1,204,203,200_.jpg",
+          "calificacion": 4.4
+        },
+        {
+          "titulo": "You Don't Know JS Yet (Edición 15)",
+          "autor": "Kyle Simpson",
+          "descripcion": "Deep dive into JavaScript core mechanisms and concepts.",
+          "precio_usd": 39.99,
+          "stock": 112,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51L9c1y8gJL._SX331_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "Clean Code (Edición 16)",
+          "autor": "Robert C. Martin",
+          "descripcion": "A Handbook of Agile Software Craftsmanship focused on writing readable and maintainable code.",
+          "precio_usd": 37.99,
+          "stock": 90,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX374_BO1,204,203,200_.jpg",
+          "calificacion": 4.7
+        },
+        {
+          "titulo": "The Pragmatic Programmer (Edición 17)",
+          "autor": "Andrew Hunt, David Thomas",
+          "descripcion": "Classic tips and practices for effective software development.",
+          "precio_usd": 45.0,
+          "stock": 63,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51A5Jz2pVBL._SX380_BO1,204,203,200_.jpg",
+          "calificacion": 4.7
+        },
+        {
+          "titulo": "Introduction to Algorithms (Edición 18)",
+          "autor": "Thomas H. Cormen et al.",
+          "descripcion": "Comprehensive textbook covering a broad range of algorithms in depth.",
+          "precio_usd": 94.99,
+          "stock": 26,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41SNoh5ZhOL._SX396_BO1,204,203,200_.jpg",
+          "calificacion": 4.4
+        },
+        {
+          "titulo": "Design Patterns (Edición 19)",
+          "autor": "Erich Gamma et al.",
+          "descripcion": "Elements of Reusable Object-Oriented Software.",
+          "precio_usd": 62.49,
+          "stock": 34,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51kuc0iWo5L._SX379_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "You Don't Know JS Yet (Edición 20)",
+          "autor": "Kyle Simpson",
+          "descripcion": "Deep dive into JavaScript core mechanisms and concepts.",
+          "precio_usd": 39.99,
+          "stock": 102,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51L9c1y8gJL._SX331_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "items": [
+        {
+          "titulo": "Clean Code (Edición 21)",
+          "autor": "Robert C. Martin",
+          "descripcion": "A Handbook of Agile Software Craftsmanship focused on writing readable and maintainable code.",
+          "precio_usd": 37.99,
+          "stock": 80,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX374_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "The Pragmatic Programmer (Edición 22)",
+          "autor": "Andrew Hunt, David Thomas",
+          "descripcion": "Classic tips and practices for effective software development.",
+          "precio_usd": 45.0,
+          "stock": 53,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51A5Jz2pVBL._SX380_BO1,204,203,200_.jpg",
+          "calificacion": 4.8
+        },
+        {
+          "titulo": "Introduction to Algorithms (Edición 23)",
+          "autor": "Thomas H. Cormen et al.",
+          "descripcion": "Comprehensive textbook covering a broad range of algorithms in depth.",
+          "precio_usd": 94.99,
+          "stock": 16,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41SNoh5ZhOL._SX396_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        },
+        {
+          "titulo": "Design Patterns (Edición 24)",
+          "autor": "Erich Gamma et al.",
+          "descripcion": "Elements of Reusable Object-Oriented Software.",
+          "precio_usd": 62.49,
+          "stock": 24,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51kuc0iWo5L._SX379_BO1,204,203,200_.jpg",
+          "calificacion": 4.3
+        },
+        {
+          "titulo": "You Don't Know JS Yet (Edición 25)",
+          "autor": "Kyle Simpson",
+          "descripcion": "Deep dive into JavaScript core mechanisms and concepts.",
+          "precio_usd": 39.99,
+          "stock": 92,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51L9c1y8gJL._SX331_BO1,204,203,200_.jpg",
+          "calificacion": 4.7
+        },
+        {
+          "titulo": "Clean Code (Edición 26)",
+          "autor": "Robert C. Martin",
+          "descripcion": "A Handbook of Agile Software Craftsmanship focused on writing readable and maintainable code.",
+          "precio_usd": 37.99,
+          "stock": 70,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX374_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "The Pragmatic Programmer (Edición 27)",
+          "autor": "Andrew Hunt, David Thomas",
+          "descripcion": "Classic tips and practices for effective software development.",
+          "precio_usd": 45.0,
+          "stock": 43,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51A5Jz2pVBL._SX380_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "Introduction to Algorithms (Edición 28)",
+          "autor": "Thomas H. Cormen et al.",
+          "descripcion": "Comprehensive textbook covering a broad range of algorithms in depth.",
+          "precio_usd": 94.99,
+          "stock": 6,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/41SNoh5ZhOL._SX396_BO1,204,203,200_.jpg",
+          "calificacion": 4.6
+        },
+        {
+          "titulo": "Design Patterns (Edición 29)",
+          "autor": "Erich Gamma et al.",
+          "descripcion": "Elements of Reusable Object-Oriented Software.",
+          "precio_usd": 62.49,
+          "stock": 14,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51kuc0iWo5L._SX379_BO1,204,203,200_.jpg",
+          "calificacion": 4.4
+        },
+        {
+          "titulo": "You Don't Know JS Yet (Edición 30)",
+          "autor": "Kyle Simpson",
+          "descripcion": "Deep dive into JavaScript core mechanisms and concepts.",
+          "precio_usd": 39.99,
+          "stock": 82,
+          "url_caratula": "https://images-na.ssl-images-amazon.com/images/I/51L9c1y8gJL._SX331_BO1,204,203,200_.jpg",
+          "calificacion": 4.5
+        }
+      ]
+    }
+  ]
+}
