@@ -1,11 +1,9 @@
 export const AppRoutes = {
     
     home: "/",
-    login: "/login",
-    register: "/registro",
+    auth: "/auth",
     cart: "/carrito",
     bookDetail: "/libro/:slug",
-    category: "/categoria/:slug",
 
     private: {
         root: "/cuenta",

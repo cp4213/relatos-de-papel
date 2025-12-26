@@ -25,6 +25,11 @@ export default function Sidebar() {
       {/* Navigation */}
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
+          <NavLink className="nav-link text-white" to="/auth">
+            🔒 {!collapsed && "Iniciar sesión"}
+          </NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink className="nav-link text-white" to="/">
             📚 {!collapsed && "Catálogo"}
           </NavLink>

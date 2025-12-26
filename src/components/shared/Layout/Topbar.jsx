@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import { AppRoutes } from "../../../routes/appRoutes";
-
+import userAvatar from "../../../assets/images/user.png";
 export default function Topbar() {
   const { user, logout } = useAuth();
 
@@ -24,11 +24,12 @@ export default function Topbar() {
           data-bs-toggle="dropdown"
         >
           <img
-            src="https://via.placeholder.com/32"
+            src={user?.avatar || userAvatar}
             alt="avatar"
             className="rounded-circle me-2"
+            style={{ width: "32px", height: "32px" }}
           />
-          {user?.name}
+          {user?.email}
         </button>
 
         <ul className="dropdown-menu dropdown-menu-end">
