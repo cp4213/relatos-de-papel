@@ -16,6 +16,8 @@ export default function CatalogPage() {
 
     const [priceFilter, setPriceFilter] = useState(minPrecio);
     const [debouncedPrice, setDebouncedPrice] = useState(minPrecio);
+    const [ratingFilter, setRatingFilter] = useState(0);
+    const [yearFilter, setYearFilter] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
     const initialSearchTerm = location.state?.searchTerm || "";
@@ -43,14 +45,27 @@ export default function CatalogPage() {
         return catalog_list.pages.flatMap(page => page.items);
     }, []);
 
+    /* Obtener años únicos */
+    const availableYears = useMemo(() => {
+        const years = allItems
+            .map(item => {
+                const year = item.fecha_lanzamiento?.split("-")[0];
+                return year ? parseInt(year, 10) : null;
+            })
+            .filter(year => year !== null);
+        return [...new Set(years)].sort((a, b) => b - a);
+    }, [allItems]);
+
     /* Filtro combinado */
     const filteredItems = useMemo(() => {
         const term = searchTerm.trim().toLowerCase();
 
         return allItems.filter(item => {
             const matchPrice = item.precio_usd >= debouncedPrice;
+            const matchRating = ratingFilter === 0 || (item.calificacion >= ratingFilter);
+            const matchYear = !yearFilter || item.fecha_lanzamiento?.startsWith(yearFilter);
 
-            if (!term) return matchPrice;
+            if (!term) return matchPrice && matchRating && matchYear;
 
             const text = `
         ${item.titulo}
@@ -58,13 +73,13 @@ export default function CatalogPage() {
         ${item.descripcion}
       `.toLowerCase();
 
-            return matchPrice && text.includes(term);
+            return matchPrice && matchRating && matchYear && text.includes(term);
         });
-    }, [allItems, debouncedPrice, searchTerm]);
+    }, [allItems, debouncedPrice, searchTerm, ratingFilter, yearFilter]);
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [debouncedPrice, searchTerm]);
+    }, [debouncedPrice, searchTerm, ratingFilter, yearFilter]);
 
     /* Paginado */
     const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
@@ -90,8 +105,18 @@ export default function CatalogPage() {
 
     const handleReset = () => {
         setPriceFilter(minPrecio);
+        setRatingFilter(0);
+        setYearFilter("");
         setSearchInput("");
         setSearchTerm("");
+    };
+
+    const handleRatingFilterChange = (e) => {
+        setRatingFilter(Number(e.target.value));
+    };
+
+    const handleYearFilterChange = (e) => {
+        setYearFilter(e.target.value);
     };
 
     const handleViewDetail = (book) => {
@@ -127,18 +152,43 @@ export default function CatalogPage() {
                     </form>
 
                     <form className="mb-3">
-                        <label htmlFor="">Categorías | Generos</label>
-                        <select name="" id="" className="form-select">
-                            <option value="">Todas</option>
-                            <option value="1">Categoría 1</option>
-                            <option value="2">Categoría 2</option>
-                            <option value="3">Categoría 3</option>
+                        <label htmlFor="ratingFilter" className="form-label">
+                            Calificación por estrellas
+                        </label>
+                        <select 
+                            name="ratingFilter" 
+                            id="ratingFilter" 
+                            className="form-select"
+                            value={ratingFilter}
+                            onChange={handleRatingFilterChange}
+                        >
+                            <option value="0">Todas las calificaciones</option>
+                            <option value="5">⭐⭐⭐⭐⭐ 5 estrellas</option>
+                            <option value="4">⭐⭐⭐⭐ 4 estrellas o más</option>
+                            <option value="3">⭐⭐⭐ 3 estrellas o más</option>
+                            <option value="2">⭐⭐ 2 estrellas o más</option>
+                            <option value="1">⭐ 1 estrella o más</option>
                         </select>
                     </form>
 
-                    <form>
-                        <label htmlFor="">Fecha de publicación</label>
-                        <input type="date" name="" id="" className="form-control" />
+                    <form className="mb-3">
+                        <label htmlFor="yearFilter" className="form-label">
+                            Año de publicación
+                        </label>
+                        <select 
+                            name="yearFilter" 
+                            id="yearFilter" 
+                            className="form-select"
+                            value={yearFilter}
+                            onChange={handleYearFilterChange}
+                        >
+                            <option value="">Todos los años</option>
+                            {availableYears.map(year => (
+                                <option key={year} value={year.toString()}>
+                                    {year}
+                                </option>
+                            ))}
+                        </select>
                     </form>
                 </div>
 
