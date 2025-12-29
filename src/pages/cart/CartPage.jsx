@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import CartItem from './CartItem';
 import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
 import './cart.css';
 import { AppRoutes } from '../../routes/appRoutes';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function CartPage() {
     const {
@@ -18,9 +19,9 @@ export default function CartPage() {
         applyCoupon,
         removeCoupon
     } = useCart();
-
+    const { isAuthenticated } = useAuth();
     const [coupon, setCoupon] = useState('');
-
+    const navigate = useNavigate();
 
     const subtotal = getSubtotal();
     const total = getTotal();
@@ -49,6 +50,13 @@ export default function CartPage() {
         setCoupon('');
     };
 
+    const handleProceedToCheckout = () => {
+        if (isAuthenticated) {
+            navigate(AppRoutes.private.checkout);
+        } else {
+            navigate(AppRoutes.auth);
+        }
+    };
     return (
         <div className="container py-4">
             <h4 className="mb-4">Tu Carrito ({totalItems} {totalItems === 1 ? 'item' : 'items'})</h4>
@@ -151,7 +159,7 @@ export default function CartPage() {
                             <span>${total.toFixed(2)}</span>
                         </div>
 
-                        <button className="checkout-btn">
+                        <button className="checkout-btn" onClick={handleProceedToCheckout}>
                             Proceder al pago
                         </button>
                     </div>

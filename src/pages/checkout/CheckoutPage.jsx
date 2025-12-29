@@ -1,36 +1,50 @@
-import './checkout.css';
+import { useState } from 'react';
 import { FaCreditCard, FaPaypal } from "react-icons/fa";
-
+import InputField from '../../components/form/InputField';
+import './checkout.css';
 export default function CheckoutPage() {
+    const [formData, setFormData] = useState({
+        address: '',
+        payment: 'card'
+    });
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    };
+
     return (
         <div className="card p-3">
             <h5>Finalizar compra</h5>
-            <label htmlFor="address" className="form-label fw-bold small">Dirección de envío</label>
-            <input type="text" className="form-control mb-4" id="address" placeholder="Ingrese su dirección de envío" />
-
+            <InputField label="Dirección de envío" name="address" value={formData.address} onChange={handleChange} />
             <h5>Metodo de pago</h5>
-            <label className="payment-option active d-flex align-items-center mb-3">
+            <label className={`payment-option d-flex align-items-center mb-3 ${formData.payment === 'card' ? 'active' : ''}`}>
                 <input
                     type="radio"
                     name="payment"
                     value="card"
-                    checked
+                    checked={formData.payment === 'card'}
+                    onChange={handleChange}
                 />
                 <span className="me-2"><FaCreditCard /></span>
                     <strong>Tarjeta de Crédito / Débito</strong>
             </label>
 
-            <label className="payment-option d-flex align-items-center">
+            <label className={`payment-option d-flex align-items-center ${formData.payment === 'paypal' ? 'active' : ''}`}>
                 <input
                     type="radio"
                     name="payment"
                     value="paypal"
+                    checked={formData.payment === 'paypal'}
+                    onChange={handleChange}
                 />
                 <span className="me-2"><FaPaypal /></span>
                 <strong>PayPal</strong>
             </label>
 
-            <button className="btn btn-dark w-100 mt-2">Confirmar y pagar</button>
+            <button className="btn btn-dark w-100 mt-2" onClick={handleSubmit}>Confirmar y pagar</button>
         </div>
     );
 }

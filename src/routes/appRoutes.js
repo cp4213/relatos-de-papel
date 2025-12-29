@@ -11,6 +11,6 @@ export const AppRoutes = {
         profile: "perfil",
         addresses: "direcciones",
         wishlist: "wishlist",
-        checkout: "checkout"
+        checkout: "/checkout"
     }
 }
