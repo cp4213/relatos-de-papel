@@ -1,28 +1,35 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { AppRoutes } from "../../routes/appRoutes";
+import { getMinMaxPrice } from "../../utilities/utils";
 import Pagination from "../../components/shared/Pagination";
 import CatalogItem from "./CatalogItem";
 import catalog_list from "../../utilities/catalog_list.json";
-import { getMinMaxPrice } from "../../utilities/utils";
 import "./catalog.css";
-import { AppRoutes } from "../../routes/appRoutes";
 
 const ITEMS_PER_PAGE = 10;
 const DEBOUNCE_DELAY = 300;
 
 export default function CatalogPage() {
     const { minPrecio = 0, maxPrecio = 0 } = getMinMaxPrice(catalog_list);
+    const location = useLocation();
 
-    /* ---------------- States ---------------- */
     const [priceFilter, setPriceFilter] = useState(minPrecio);
     const [debouncedPrice, setDebouncedPrice] = useState(minPrecio);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const [searchInput, setSearchInput] = useState("");
-    const [searchTerm, setSearchTerm] = useState("");
+    const initialSearchTerm = location.state?.searchTerm || "";
+    const [searchInput, setSearchInput] = useState(initialSearchTerm);
+    const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
     const navigate = useNavigate();
 
-    /* ---------------- Debounce precio ---------------- */
+    useEffect(() => {
+        if (initialSearchTerm) {
+            setSearchTerm(initialSearchTerm);
+            setSearchInput(initialSearchTerm);
+        }
+    }, [initialSearchTerm]);
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedPrice(priceFilter);
@@ -31,12 +38,12 @@ export default function CatalogPage() {
         return () => clearTimeout(timer);
     }, [priceFilter]);
 
-    /* -------- Normalizar estructura -------- */
+    /* Normalizar estructura */
     const allItems = useMemo(() => {
         return catalog_list.pages.flatMap(page => page.items);
     }, []);
 
-    /* -------------- Filtro combinado -------------- */
+    /* Filtro combinado */
     const filteredItems = useMemo(() => {
         const term = searchTerm.trim().toLowerCase();
 
@@ -55,12 +62,11 @@ export default function CatalogPage() {
         });
     }, [allItems, debouncedPrice, searchTerm]);
 
-    /* ---- Reset página cuando cambia filtro ---- */
     useEffect(() => {
         setCurrentPage(1);
     }, [debouncedPrice, searchTerm]);
 
-    /* ---------------- Paginado ---------------- */
+    /* Paginado */
     const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
     const paginatedItems = useMemo(() => {
@@ -68,7 +74,7 @@ export default function CatalogPage() {
         return filteredItems.slice(start, start + ITEMS_PER_PAGE);
     }, [filteredItems, currentPage]);
 
-    /* ---------------- Handlers ---------------- */
+
     const handlePriceFilterChange = (e) => {
         setPriceFilter(Number(e.target.value));
     };
