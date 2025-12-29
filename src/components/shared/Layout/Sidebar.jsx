@@ -25,22 +25,22 @@ export default function Sidebar() {
       {/* Navigation */}
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
-          <NavLink className="nav-link text-white" to="/auth">
+          <NavLink className="nav-link text-white" to={AppRoutes.auth}>
             🔒 {!collapsed && "Iniciar sesión"}
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link text-white" to="/">
+          <NavLink className="nav-link text-white" to={AppRoutes.home}>
             📚 {!collapsed && "Catálogo"}
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link text-white" to="/carrito">
+          <NavLink className="nav-link text-white" to={AppRoutes.cart}>
             🛒 {!collapsed && "Carrito"}
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link text-white" to="/cuenta/pedidos">
+          <NavLink className="nav-link text-white" to={AppRoutes.private.orders}>
             🧾 {!collapsed && "Mis pedidos"}
           </NavLink>
         </li>

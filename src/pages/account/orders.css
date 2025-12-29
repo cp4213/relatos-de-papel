@@ -1,0 +1,12 @@
+.order-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    border: 2px solid #dee2e6;
+    margin-right: 1rem;
+}
+
+.order-card {
+    opacity: 0.5;
+}
