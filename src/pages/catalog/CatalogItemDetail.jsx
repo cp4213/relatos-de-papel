@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import AddToCartButton from '../../components/shared/AddToCartButton'
-import avatar_usuario from '../../assets/images/user.png';
-
+import imagen from '../../assets/images/error400-cover.png';
 export default function CatalogItemDetail() {
     const { book } = useLocation().state;
     if (!book) {
@@ -24,7 +23,9 @@ export default function CatalogItemDetail() {
     return (
         <div className="container-detail">
             <div className="container-detail-image">
-                <img src={url_caratula} alt={titulo} />
+                <img src={url_caratula} alt={titulo} onError={(e) => {
+                    e.target.src = imagen;
+                }} />
             </div>
             <div className="container-detail-content">
                 <h1>{titulo}</h1>
@@ -53,7 +54,6 @@ export default function CatalogItemDetail() {
                     </button>
                 </div>
                 <div className="d-flex gap-2">
-                    {/* <img className="rounded-circle" src={avatar_usuario} alt="" style={{width: '40px', height: '40px'}} /> */}
                     <div className="bg-body-secondary p-3 rounded-circle border" style={{width: '40px', height: '40px'}}></div>
                     <div>
                         <h6>Usuario123 <span className="text-muted" style={{fontSize: '0.75rem', fontWeight: 'normal'}}>• Hace 2 días</span></h6>

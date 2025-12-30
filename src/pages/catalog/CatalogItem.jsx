@@ -1,5 +1,5 @@
 import AddToCartButton from "../../components/shared/AddToCartButton";
-
+import imagen from '../../assets/images/error400-cover.png';
 export default function CatalogItem({ data, onViewDetail }) {
     const { url_caratula, titulo, calificacion = 0, precio_usd = 0 } = data;
     // Renderizar estrellas de calificación
@@ -25,7 +25,9 @@ export default function CatalogItem({ data, onViewDetail }) {
     return (
         <div className="catalog-item">
             <div className="catalog-item-image">
-                <img src={url_caratula} alt={titulo} />
+                <img src={url_caratula} alt={titulo} onError={(e) => {
+                    e.target.src = imagen;
+                }} />
             </div>
             <div className="catalog-item-body">
                 <h5 className="catalog-item-title" title={titulo}>{titulo}</h5>

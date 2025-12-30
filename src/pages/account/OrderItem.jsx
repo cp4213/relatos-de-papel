@@ -52,7 +52,10 @@ export default function OrderItem({
                                 key={index} 
                                 src={img} 
                                 alt={`Libro ${index + 1}`} 
-                                className="order-image" 
+                                className="order-image"
+                                onError={(e) => {
+                                    e.target.src = imagen;
+                                }}
                             />
                         ))
                     ) : (
