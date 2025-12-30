@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import {BrowserRouter, Navigate, Route} from "react-router-dom";
 import { AppRoutes } from "./routes/appRoutes";
 import PublicLayout from "./layouts/PublicLayout";
 import RoutesWithNotFound from "./routes/RoutesWithNotFound";
@@ -9,12 +9,14 @@ import CartPage from "./pages/cart/CartPage";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
 import OrdersPage from "./pages/account/OrdersPage";
 import AuthGuard from "./guard/AuthGuard";
+import LandingPage from "./pages/landing/LandingPage";
 
 export default function AppRouter() {
     return (
         <BrowserRouter>
             <RoutesWithNotFound>
-                <Route path={AppRoutes.home} element={<PublicLayout />}>
+                <Route path={AppRoutes.landing} element={<LandingPage />} />
+                <Route element={<PublicLayout />}>
                     <Route path={AppRoutes.home} element={<CatalogPage />} />
                     <Route path={AppRoutes.auth} element={<AuthPage />} />
                     <Route path={AppRoutes.bookDetail} element={<CatalogItemDetail />} />
