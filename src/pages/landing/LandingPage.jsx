@@ -119,10 +119,10 @@ export default function LandingPage() {
                             </div>
 
                             <div className="feature-card">
-                                <div className="feature-icon">🎧</div>
+                                <div className="feature-icon">📦</div>
                                 <div className="feature-content">
-                                    <h3>Lectura Inmersiva</h3>
-                                    <p>Optimizado para todas las pantallas</p>
+                                    <h3>Envío Seguro Garantizado</h3>
+                                    <p>Protección total de tu pedido desde nuestro almacén hasta tu puerta</p>
                                 </div>
                             </div>
 

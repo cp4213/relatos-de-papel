@@ -1,6 +1,6 @@
 export const AppRoutes = {
     landing: "/",
-    home: "/home",                   // Mantén home en /
+    home: "/catalog",
     auth: "/auth",
     cart: "/carrito",
     bookDetail: "/libro/:id",
