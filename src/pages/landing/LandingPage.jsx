@@ -39,7 +39,6 @@ export default function LandingPage() {
         <div className="landing-container">
             <div className="landing-content">
 
-                {/* Header con Logo */}
                 <header className="landing-header">
                     <div className="logo-section">
                         <div className="logo-icon">📚</div>
@@ -50,9 +49,7 @@ export default function LandingPage() {
                     </div>
                 </header>
 
-                {/* Contenido Principal */}
                 <main className="landing-main">
-                    {/* Sección Hero */}
                     <section className="hero-section">
                         <div className="hero-content">
                             <h2 className="hero-title">Descubre mundos infinitos entre páginas</h2>
@@ -63,7 +60,6 @@ export default function LandingPage() {
                         </div>
                     </section>
 
-                    {/* Mini Catálogo de Vista Previa */}
                     <section className="preview-section">
                         <h3 className="preview-title">Algunos de nuestros destacados</h3>
                         <div className="book-preview-grid">
@@ -99,7 +95,6 @@ export default function LandingPage() {
                         </div>
                     </section>
 
-                    {/* Features */}
                     <section className="features-section">
                         <div className="features-grid">
                             <div className="feature-card">
@@ -137,7 +132,6 @@ export default function LandingPage() {
                     </section>
                 </main>
 
-                {/* Footer con Countdown */}
                 <footer className="landing-footer">
                     <div className="countdown-container">
                         <div className="countdown-display">
@@ -182,7 +176,7 @@ export default function LandingPage() {
 
                     <div className="landing-footer-bottom">
                         <p className="copyright-text">
-                            © 2024 Relatos de Papel. Todos los derechos reservados.
+                            © 2026 Relatos de Papel. Todos los derechos reservados.
                         </p>
                     </div>
                 </footer>
