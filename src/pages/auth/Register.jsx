@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import EmailField from '../../components/form/EmailField.jsx';
 import PasswordField from '../../components/form/PasswordField.jsx';
 import CheckboxField from '../../components/form/CheckboxField.jsx';
@@ -9,6 +10,7 @@ export default function Register({
                                      registerData,
                                      errors = {}  // errors como prop
                                  }) {
+    const { t } = useTranslation();
     return (
         <form onSubmit={handleRegisterSubmit}>
             {/* Campo de Email */}
@@ -16,8 +18,8 @@ export default function Register({
                 value={registerData.email}
                 onChange={handleRegisterChange}
                 error={errors.email}
-                label="Email"
-                placeholder="tu@email.com"
+                label={t('auth.email')}
+                placeholder={t('auth.emailPlaceholder')}
             />
 
             {/* Campo de Password */}
@@ -25,7 +27,7 @@ export default function Register({
                 value={registerData.password}
                 onChange={handleRegisterChange}
                 error={errors.password}
-                label="Contraseña"
+                label={t('auth.password')}
                 showToggle={true}
                 placeholder=""
             />
@@ -35,7 +37,7 @@ export default function Register({
                 value={registerData.confirmPassword}
                 onChange={handleRegisterChange}
                 error={errors.confirmPassword}
-                label="Confirmar Contraseña"
+                label={t('auth.confirmPassword')}
                 name="confirmPassword"
                 id="confirmPassword"
                 placeholder=""
@@ -48,13 +50,13 @@ export default function Register({
                 id="terms"
                 checked={registerData.terms || false}
                 onChange={handleRegisterChange}
-                label="Acepto los términos y condiciones"
+                label={t('auth.acceptTerms')}
                 error={errors.terms}
                 required={true}
             />
 
             <button type="submit" className="btn btn-dark w-100 mt-4">
-                Registrarse
+                {t('auth.register')}
             </button>
         </form>
     );

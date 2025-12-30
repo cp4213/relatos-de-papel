@@ -1,11 +1,14 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { AppRoutes } from "../../../routes/appRoutes";
-import LanguageSwitcher from "../LanguageSwitcher";
 import { useAuth } from "../../../context/AuthContext";
+import LanguageSwitcher from "../LanguageSwitcher";
+
 export default function Sidebar() {
   const { isAuthenticated } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div
@@ -28,25 +31,25 @@ export default function Sidebar() {
         {!isAuthenticated && (
           <li className="nav-item">
             <NavLink className="nav-link text-white" to={AppRoutes.auth}>
-              🔒 {!collapsed && "Iniciar sesión"}
+              🔒 {!collapsed && t("navigation.login")}
             </NavLink>
           </li>
         )}
         <li className="nav-item">
           <NavLink className="nav-link text-white" to={AppRoutes.home}>
-            📚 {!collapsed && "Catálogo"}
+            📚 {!collapsed && t("navigation.catalog")}
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link text-white" to={AppRoutes.cart}>
-            🛒 {!collapsed && "Carrito"}
+            🛒 {!collapsed && t("navigation.cart")}
           </NavLink>
         </li>
         {
           isAuthenticated && (
             <li className="nav-item">
               <NavLink className="nav-link text-white" to={AppRoutes.private.orders}>
-                🧾 {!collapsed && "Mis pedidos"}
+                🧾 {!collapsed && t("navigation.orders")}
               </NavLink>
             </li>
           )

@@ -1,0 +1,39 @@
+{
+  "navigation": {
+    "login": "Iniciar sesión",
+    "catalog": "Catálogo",
+    "cart": "Carrito",
+    "orders": "Mis pedidos"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "email": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "newPassword": "Nueva contraseña",
+    "acceptTerms": "Acepto los términos y condiciones",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "recoverPassword": "Recuperar contraseña",
+    "passwordRecovered": "Contraseña recuperada exitosamente"
+  },
+  "common": {
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  },
+  "validation": {
+    "emailRequired": "El email es requerido",
+    "emailInvalid": "Email inválido",
+    "passwordRequired": "La contraseña es requerida",
+    "passwordMinLength": "Mínimo 6 caracteres",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden",
+    "mustAcceptTerms": "Debes aceptar los términos"
+  },
+  "accessibility": {
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña"
+  }
+}
+

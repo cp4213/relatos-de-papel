@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from '../../context/AuthContext';
 import { AppRoutes } from '../../routes/appRoutes';
 import Login from './Login';
@@ -8,6 +9,7 @@ import Register from './Register';
 export default function AuthPage() {
     const { login } = useAuth();
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -44,12 +46,12 @@ export default function AuthPage() {
         e.preventDefault();
 
         if (registerData.password !== registerData.confirmPassword) {
-            alert('Las contraseñas no coinciden');
+            alert(t('validation.passwordsDoNotMatch'));
             return;
         }
 
         if (!registerData.terms) {
-            alert('Debes aceptar los términos');
+            alert(t('validation.mustAcceptTerms'));
             return;
         }
 
@@ -71,7 +73,7 @@ export default function AuthPage() {
                                 data-bs-target="#login"
                                 type="button"
                             >
-                                Iniciar sesión
+                                {t('auth.login')}
                             </button>
                         </li>
                         <li className="nav-item">
@@ -81,7 +83,7 @@ export default function AuthPage() {
                                 data-bs-target="#register"
                                 type="button"
                             >
-                                Registrarse
+                                {t('auth.register')}
                             </button>
                         </li>
                     </ul>

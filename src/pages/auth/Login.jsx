@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import EmailField from '../../components/form/EmailField';
 import PasswordField from '../../components/form/PasswordField';
 
 export default function Login({ handleLoginSubmit, handleLoginChange, loginData }) {
+    const { t } = useTranslation();
     const [errors, setErrors] = useState({});
     const [showModal, setShowModal] = useState(false);
     const [newPassword, setNewPassword] = useState('');
@@ -12,15 +14,15 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
         const newErrors = {};
 
         if (!loginData.email) {
-            newErrors.email = 'El email es requerido';
+            newErrors.email = t('validation.emailRequired');
         } else if (!/\S+@\S+\.\S+/.test(loginData.email)) {
-            newErrors.email = 'Email inválido';
+            newErrors.email = t('validation.emailInvalid');
         }
 
         if (!loginData.password) {
-            newErrors.password = 'La contraseña es requerida';
+            newErrors.password = t('validation.passwordRequired');
         } else if (loginData.password.length < 6) {
-            newErrors.password = 'Mínimo 6 caracteres';
+            newErrors.password = t('validation.passwordMinLength');
         }
 
         setErrors(newErrors);
@@ -40,15 +42,15 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
         
         // Validar contraseña
         if (!newPassword) {
-            setPasswordError('La contraseña es requerida');
+            setPasswordError(t('validation.passwordRequired'));
             return;
         } else if (newPassword.length < 6) {
-            setPasswordError('Mínimo 6 caracteres');
+            setPasswordError(t('validation.passwordMinLength'));
             return;
         }
 
         // Mostrar alerta de éxito
-        alert('Contraseña recuperada exitosamente');
+        alert(t('auth.passwordRecovered'));
         
         // Cerrar modal y limpiar formulario
         handleCloseModal();
@@ -77,7 +79,7 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
                 />
 
                 <button type="submit" className="btn btn-dark w-100 mt-3">
-                    Iniciar sesión
+                    {t('auth.login')}
                 </button>
 
                 <div className="text-center mt-3">
@@ -86,7 +88,7 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
                         className="btn btn-link text-decoration-none p-0"
                         onClick={() => setShowModal(true)}
                     >
-                        ¿Olvidaste tu contraseña?
+                        {t('auth.forgotPassword')}
                     </button>
                 </div>
             </form>
@@ -112,12 +114,12 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                 <div className="modal-header">
-                                    <h5 className="modal-title">Recuperar contraseña</h5>
+                                    <h5 className="modal-title">{t('auth.recoverPassword')}</h5>
                                     <button 
                                         type="button" 
                                         className="btn-close" 
                                         onClick={handleCloseModal}
-                                        aria-label="Cerrar"
+                                        aria-label={t('common.close')}
                                     ></button>
                                 </div>
                                 <form onSubmit={handleRecoverPassword}>
@@ -130,7 +132,7 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
                                             }}
                                             error={passwordError}
                                             showToggle={true}
-                                            label="Nueva contraseña"
+                                            label={t('auth.newPassword')}
                                             id="newPassword"
                                         />
                                     </div>
@@ -140,13 +142,13 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
                                             className="btn btn-secondary" 
                                             onClick={handleCloseModal}
                                         >
-                                            Cancelar
+                                            {t('common.cancel')}
                                         </button>
                                         <button 
                                             type="submit" 
                                             className="btn btn-dark"
                                         >
-                                            Confirmar
+                                            {t('common.confirm')}
                                         </button>
                                     </div>
                                 </form>
