@@ -1,18 +1,33 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaCreditCard, FaPaypal } from "react-icons/fa";
+import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
+import { AppRoutes } from '../../routes/appRoutes';
 import InputField from '../../components/form/InputField';
 import './checkout.css';
+
 export default function CheckoutPage() {
+    const navigate = useNavigate();
+    const { processOrder } = useCart();
+    const { user } = useAuth();
+
     const [formData, setFormData] = useState({
         address: '',
         payment: 'card'
     });
+    
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        
+        processOrder(formData, user);
+        
+        // Navegar a la página de pedidos
+        navigate(AppRoutes.private.orders);
     };
 
     return (

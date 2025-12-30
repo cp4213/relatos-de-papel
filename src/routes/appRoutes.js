@@ -7,7 +7,7 @@ export const AppRoutes = {
 
     private: {
         root: "/cuenta",
-        orders: "pedidos",
+        orders: "/pedidos",
         profile: "perfil",
         addresses: "direcciones",
         wishlist: "wishlist",

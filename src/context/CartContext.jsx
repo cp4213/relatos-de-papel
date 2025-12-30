@@ -187,6 +187,69 @@ export function CartProvider({ children }) {
     return item ? item.quantity : 0;
   };
 
+  const processOrder = (formData, user) => {
+    // Validar que haya items en el carrito
+    if (cartItems.length === 0) {
+      alert('El carrito está vacío');
+      return;
+    }
+
+    // Validar dirección
+    if (!formData.address.trim()) {
+      alert('Por favor, ingresa una dirección de envío');
+      return;
+    }
+
+    // Crear idPedido único
+    const idPedido = `PED-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+    // Obtener datos de la compra
+    const fechaCompra = new Date().toISOString();
+    const totalPagado = getTotal();
+    const urlsImagenes = cartItems.map(item => item.url_caratula);
+
+    // Crear objeto de compra
+    const compra = {
+      idPedido,
+      auth_user: user.email,
+      fechaCompra,
+      totalPagado,
+      urlsImagenes,
+      items: cartItems.map(item => ({
+        titulo: item.titulo,
+        autor: item.autor,
+        precio_usd: item.precio_usd,
+        url_caratula: item.url_caratula,
+        quantity: item.quantity
+      })),
+      direccionEnvio: formData.address,
+      metodoPago: formData.payment
+    };
+
+    // Obtener pedidos existentes del localStorage
+    const pedidosKey = `pedidos_${user.email}`;
+    const pedidosExistentes = localStorage.getItem(pedidosKey);
+    let pedidos = [];
+
+    if (pedidosExistentes) {
+      try {
+        pedidos = JSON.parse(pedidosExistentes);
+      } catch (error) {
+        console.error('Error al cargar pedidos existentes:', error);
+        pedidos = [];
+      }
+    }
+
+    // Agregar nuevo pedido
+    pedidos.push(compra);
+
+    localStorage.setItem(pedidosKey, JSON.stringify(pedidos));
+
+    // Limpiar el carrito
+    clearCart();
+
+    alert('¡Compra realizada con éxito!');
+  }
   const value = {
     cartItems,
     addToCart,
@@ -202,6 +265,7 @@ export function CartProvider({ children }) {
     removeCoupon,
     isInCart,
     getItemQuantity,
+    processOrder
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
