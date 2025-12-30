@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { FaTimes, FaExclamationTriangle } from "react-icons/fa";
 import imagen from '../../assets/images/error400-cover.png';
@@ -13,6 +14,7 @@ export default function OrderItem({
                                       isExpanded,
                                       onClick
                                   }) {
+    const { t } = useTranslation();
     // Determinar si el pedido está entregado (success)
     const isDelivered = status === 'success';
     // Determinar si el pedido está en tránsito
@@ -36,7 +38,7 @@ export default function OrderItem({
             aria-expanded={isExpanded}
         >
             <div className="d-flex justify-content-between mb-2">
-                <h5 className="m-0">Pedido #{orderNumber}</h5>
+                <h5 className="m-0">{t('orders.orderNumber')}{orderNumber}</h5>
                 <span className={`badge text-bg-${status}`}>{statusText}</span>
             </div>
             <div className="d-flex justify-content-between">
@@ -51,7 +53,7 @@ export default function OrderItem({
                             <img 
                                 key={index} 
                                 src={img} 
-                                alt={`Libro ${index + 1}`} 
+                                alt={`${t('orders.book')} ${index + 1}`} 
                                 className="order-image"
                                 onError={(e) => {
                                     e.target.src = imagen;
@@ -60,8 +62,8 @@ export default function OrderItem({
                         ))
                     ) : (
                         <>
-                            <img src={imagen} alt="Libro 1" className="order-image" />
-                            <img src={imagen} alt="Libro 2" className="order-image" />
+                            <img src={imagen} alt={`${t('orders.book')} 1`} className="order-image" />
+                            <img src={imagen} alt={`${t('orders.book')} 2`} className="order-image" />
                         </>
                     )}
                 </div>
@@ -70,9 +72,9 @@ export default function OrderItem({
                         className='btn btn-outline-dark order-button-responsive'
                         onClick={(e) => e.stopPropagation()}
                         disabled={!isInTransit} // Solo habilitado si está en tránsito
-                        title={isInTransit ? "Rastrear envío" : "No disponible para pedidos entregados"}
+                        title={isInTransit ? t('orders.trackShipping') : t('orders.trackShippingNotAvailable')}
                     >
-                        <MdOutlineLocalShipping /> Rastrear Envío
+                        <MdOutlineLocalShipping /> {t('orders.trackShipping')}
                     </button>
                     <button 
                         className='btn btn-outline-danger order-button-responsive'
@@ -85,22 +87,22 @@ export default function OrderItem({
                         }}
                         disabled={isDelivered || isCancelled} // Deshabilitado si está entregado o cancelado
                         title={isDelivered
-                            ? "No se puede cancelar un pedido entregado"
+                            ? t('orders.cancelOrderNotAvailable')
                             : isCancelled
-                                ? "Pedido ya cancelado"
-                                : "Cancelar pedido"
+                                ? t('orders.orderAlreadyCancelled')
+                                : t('orders.cancelOrder')
                         }
                     >
-                        <FaTimes /> Cancelar Pedido
-                        {isDelivered && <span className="visually-hidden"> (No disponible para pedidos entregados)</span>}
+                        <FaTimes /> {t('orders.cancelOrder')}
+                        {isDelivered && <span className="visually-hidden"> ({t('orders.trackShippingNotAvailable')})</span>}
                     </button>
                     <button 
                         className='btn btn-outline-warning order-button-responsive'
                         onClick={(e) => e.stopPropagation()}
                         disabled={isCancelled} // Deshabilitado si está cancelado
-                        title={isCancelled ? "No disponible para pedidos cancelados" : "Reportar un problema"}
+                        title={isCancelled ? t('orders.reportProblemNotAvailable') : t('orders.reportProblem')}
                     >
-                        <FaExclamationTriangle /> Reportar un problema
+                        <FaExclamationTriangle /> {t('orders.reportProblem')}
                     </button>
                 </div>
             </div>

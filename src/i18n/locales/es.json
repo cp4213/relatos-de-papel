@@ -107,6 +107,30 @@
     "paypal": "PayPal",
     "confirmAndPay": "Confirmar y pagar",
     "addressRequired": "Por favor, ingresa una dirección de envío"
+  },
+  "orders": {
+    "title": "Mis Pedidos",
+    "noOrders": "No tienes pedidos realizados.",
+    "orderNumber": "Pedido #",
+    "statusInTransit": "En Tránsito",
+    "statusDelivered": "Entregado",
+    "deliveredOn": "Entregado el",
+    "placedOn": "Realizado el",
+    "trackShipping": "Rastrear Envío",
+    "trackShippingNotAvailable": "No disponible para pedidos entregados",
+    "cancelOrder": "Cancelar Pedido",
+    "cancelOrderNotAvailable": "No se puede cancelar un pedido entregado",
+    "orderAlreadyCancelled": "Pedido ya cancelado",
+    "reportProblem": "Reportar un problema",
+    "reportProblemNotAvailable": "No disponible para pedidos cancelados",
+    "book": "Libro"
+  },
+  "topbar": {
+    "searchPlaceholder": "Buscar libros...",
+    "noResults": "No se encontraron resultados",
+    "viewMoreResults": "Ver más resultados",
+    "myAccount": "Mi cuenta",
+    "logout": "Cerrar sesión"
   }
 }
 

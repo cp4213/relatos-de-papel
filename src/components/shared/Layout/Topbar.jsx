@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../../../context/AuthContext";
 import { AppRoutes } from "../../../routes/appRoutes";
 import userAvatar from "../../../assets/images/user.png";
@@ -9,6 +10,7 @@ const SEARCH_DELAY = 300;
 const MAX_RESULTS = 5;
 
 export default function Topbar() {
+    const { t } = useTranslation();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState("");
@@ -110,7 +112,7 @@ export default function Topbar() {
           <input
             className="form-control"
             type="search"
-            placeholder="Buscar libros..."
+            placeholder={t('topbar.searchPlaceholder')}
             value={searchInput}
             onChange={handleSearchChange}
             onFocus={() => {
@@ -129,7 +131,7 @@ export default function Topbar() {
           >
             {searchResults.length === 0 && searchInput.trim() ? (
               <div className="p-3 text-muted text-center">
-                No se encontraron resultados
+                {t('topbar.noResults')}
               </div>
             ) : (
               <>
@@ -152,7 +154,7 @@ export default function Topbar() {
                       onClick={handleViewMore}
                       style={{ cursor: "pointer" }}
                     >
-                      Ver más resultados
+                      {t('topbar.viewMoreResults')}
                     </button>
                   </>
                 )}
@@ -180,7 +182,7 @@ export default function Topbar() {
         <ul className="dropdown-menu dropdown-menu-end">
           <li>
             <Link className="dropdown-item" to={AppRoutes.private.profile}>
-              Mi cuenta
+              {t('topbar.myAccount')}
             </Link>
           </li>
           <li>
@@ -188,7 +190,7 @@ export default function Topbar() {
           </li>
           <li>
             <button className="dropdown-item text-danger" onClick={logout}>
-              Cerrar sesión
+              {t('topbar.logout')}
             </button>
           </li>
         </ul>

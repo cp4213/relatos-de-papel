@@ -107,6 +107,30 @@
     "paypal": "PayPal",
     "confirmAndPay": "Confirm and pay",
     "addressRequired": "Please enter a shipping address"
+  },
+  "orders": {
+    "title": "My Orders",
+    "noOrders": "You have no orders placed.",
+    "orderNumber": "Order #",
+    "statusInTransit": "In Transit",
+    "statusDelivered": "Delivered",
+    "deliveredOn": "Delivered on",
+    "placedOn": "Placed on",
+    "trackShipping": "Track Shipping",
+    "trackShippingNotAvailable": "Not available for delivered orders",
+    "cancelOrder": "Cancel Order",
+    "cancelOrderNotAvailable": "Cannot cancel a delivered order",
+    "orderAlreadyCancelled": "Order already cancelled",
+    "reportProblem": "Report a problem",
+    "reportProblemNotAvailable": "Not available for cancelled orders",
+    "book": "Book"
+  },
+  "topbar": {
+    "searchPlaceholder": "Search books...",
+    "noResults": "No results found",
+    "viewMoreResults": "View more results",
+    "myAccount": "My account",
+    "logout": "Logout"
   }
 }
 
