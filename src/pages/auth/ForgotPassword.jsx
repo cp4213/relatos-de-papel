@@ -59,7 +59,10 @@ export default function ForgotPassword({ onClose }) {
                 />
 
                 <button type="submit" className="btn btn-dark w-100 mt-3">
-                    {t("auth.sendRecoveryEmail") || "Enviar instrucciones"}
+                    {t("auth.sendRecoveryEmail") === "auth.sendRecoveryEmail"
+                        ? "Enviar instrucciones"
+                        : t("auth.sendRecoveryEmail")
+                    }
                 </button>
 
                 <div className="text-center mt-3">

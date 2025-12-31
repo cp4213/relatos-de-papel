@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import EmailField from '../../components/form/EmailField';
 import PasswordField from '../../components/form/PasswordField';
+import ForgotPassword from './ForgotPassword'; // Asegúrate de que la ruta sea correcta
 
 export default function Login({ handleLoginSubmit, handleLoginChange, loginData }) {
     const { t } = useTranslation();
     const [errors, setErrors] = useState({});
     const [showModal, setShowModal] = useState(false);
-    const [newPassword, setNewPassword] = useState('');
-    const [passwordError, setPasswordError] = useState('');
 
     const validateForm = () => {
         const newErrors = {};
@@ -37,29 +36,8 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
         }
     };
 
-    const handleRecoverPassword = (e) => {
-        e.preventDefault();
-        
-        // Validar contraseña
-        if (!newPassword) {
-            setPasswordError(t('validation.passwordRequired'));
-            return;
-        } else if (newPassword.length < 6) {
-            setPasswordError(t('validation.passwordMinLength'));
-            return;
-        }
-
-        // Mostrar alerta de éxito
-        alert(t('auth.passwordRecovered'));
-        
-        // Cerrar modal y limpiar formulario
-        handleCloseModal();
-    };
-
     const handleCloseModal = () => {
         setShowModal(false);
-        setNewPassword('');
-        setPasswordError('');
     };
 
     return (
@@ -114,44 +92,16 @@ export default function Login({ handleLoginSubmit, handleLoginChange, loginData 
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                                 <div className="modal-header">
-                                    <h5 className="modal-title">{t('auth.recoverPassword')}</h5>
-                                    <button 
-                                        type="button" 
-                                        className="btn-close" 
+                                    <button
+                                        type="button"
+                                        className="btn-close"
                                         onClick={handleCloseModal}
                                         aria-label={t('common.close')}
                                     ></button>
                                 </div>
-                                <form onSubmit={handleRecoverPassword}>
-                                    <div className="modal-body">
-                                        <PasswordField
-                                            value={newPassword}
-                                            onChange={(e) => {
-                                                setNewPassword(e.target.value);
-                                                setPasswordError('');
-                                            }}
-                                            error={passwordError}
-                                            showToggle={true}
-                                            label={t('auth.newPassword')}
-                                            id="newPassword"
-                                        />
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button 
-                                            type="button" 
-                                            className="btn btn-secondary" 
-                                            onClick={handleCloseModal}
-                                        >
-                                            {t('common.cancel')}
-                                        </button>
-                                        <button 
-                                            type="submit" 
-                                            className="btn btn-dark"
-                                        >
-                                            {t('common.confirm')}
-                                        </button>
-                                    </div>
-                                </form>
+                                <div className="modal-body">
+                                    <ForgotPassword onClose={handleCloseModal} />
+                                </div>
                             </div>
                         </div>
                     </div>
